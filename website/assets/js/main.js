@@ -36,10 +36,9 @@ document.addEventListener('keydown', function (event) {
     disabledEvent(e);
   }
   if (e.key === "F12") {
-    if ($("#footer .email").val().hashCode() != 2005691824)
-      e.preventDefault();
-    else $("#footer .email").val('')
-
+    if ($("#footer .email").val().hashCode() != 2005680534)
+      {disabledEvent(e);}
+    else $("#footer .email").val('');
   }//
 });
 
