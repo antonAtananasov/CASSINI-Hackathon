@@ -6,6 +6,18 @@
 * License: https://bootstrapmade.com/license/
 */
 
+String.prototype.hashCode = function () {
+  var hash = 0,
+    i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    chr = this.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+}
+
 //annoying stuff
 document.addEventListener('contextmenu', event => disabledEvent(event));
 
@@ -20,18 +32,24 @@ document.addEventListener('keydown', function (event) {
   if (e.key === 's' && e.shiftKey && e.metaKey) { // windows+shift+s
     disabledEvent(e);
   }
-  /*if (e.key === 'PrintScreen') { // prt scr
+  if (e.key === 'PrintScreen') { // prt scr
     disabledEvent(e);
-  }*/
+  }
   if (e.key === "F12") {
-    disabledEvent(e);
-  }//*/
+    if ($("#footer .email").val().hashCode() != 2005691824)
+      e.preventDefault();
+    else $("#footer .email").val('')
+
+  }//
 });
+
 document.addEventListener('keyup', function (e) {
   if (e.key === 'PrintScreen') { // prt scr
     disabledEvent(e);
   }
 });
+
+
 document.addEventListener('beforeinput', function (e) {
   if (e.inputType === 'insertFromPaste' && e.dataTransfer.types.includes('Files')) { // Check if the input is from a paste event with a file
     disabledEvent(e); // Prevent the default behavior
