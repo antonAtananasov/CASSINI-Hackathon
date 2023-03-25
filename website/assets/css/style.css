@@ -35,6 +35,20 @@
   /* Modern browsers */
 }
 
+@media only screen and (max-width: 900px) {
+  .thunderstrike-logo {
+    display: none;
+  }
+}
+
+.thunderstrike-logo {
+  position: absolute;
+  transform: translate(10%, -50%);
+  height: 80%;
+  top: 50%;
+  left: 0;
+  filter: opacity(10%);
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -1145,15 +1159,25 @@ section {
 .team .member .social a+a {
   margin-left: 8px;
 }
-.team-name:hover, 
-div:has( > .member):hover h4,
-div:has( > .member):hover p,
-div:has( > .member):hover span
+
+.team-name:hover,
+div:has(> .member):hover h4,
+div:has(> .member):hover p,
+div:has(> .member):hover span,
+div:has(.team-name span[href='#Dimitar']:hover) div.col-lg-4 #Dimitar.member,
+div:has(.team-name span[href='#Dimitar']:hover) div.col-lg-4 #Dimitar.member h4,
+div:has(.team-name span[href='#Yanislav']:hover) div.col-lg-4 #Yanislav.member,
+div:has(.team-name span[href='#Yanislav']:hover) div.col-lg-4 #Yanislav.member h4,
+div:has(.team-name span[href='#Lyubomir']:hover) div.col-lg-4 #Lyubomir.member,
+div:has(.team-name span[href='#Lyubomir']:hover) div.col-lg-4 #Lyubomir.member h4,
+div:has(.team-name span[href='#Anton']:hover) div.col-lg-4 #Anton.member,
+div:has(.team-name span[href='#Anton']:hover) div.col-lg-4 #Anton.member h4,
+div:has(.team-name span[href='#Asen']:hover) div.col-lg-4 #Asen.member,
+div:has(.team-name span[href='#Asen']:hover) div.col-lg-4 #Asen.member h4
 {
   color: #007bff !important;
   transition: ease-in-out 0.15s;
 }
-
 
 /*--------------------------------------------------------------
 # Contact
