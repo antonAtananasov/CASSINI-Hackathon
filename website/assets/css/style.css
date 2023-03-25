@@ -9,6 +9,33 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/* NO PRINTING*/
+@media print {
+
+  html,
+  body {
+    display: none;
+  }
+
+}
+
+/* NO SELECTING */
+:not(.selectable) {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari, Chrome, Opera, Samsung */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Edge, IE */
+  user-select: none;
+  /* Modern browsers */
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;

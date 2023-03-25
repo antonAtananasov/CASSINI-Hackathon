@@ -5,7 +5,76 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-(function() {
+
+//annoying stuff
+document.addEventListener('contextmenu', event => disabledEvent(event));
+
+document.addEventListener('keydown', function (event) {
+  let e = event;
+  if (e.ctrlKey && e.key === 'u') { // ctrl+u
+    disabledEvent(e);
+  }
+  if (e.ctrlKey && e.key === 's') { // ctrl+s
+    disabledEvent(e);
+  }
+  if (e.key === 's' && e.shiftKey && e.metaKey) { // windows+shift+s
+    disabledEvent(e);
+  }
+  /*if (e.key === 'PrintScreen') { // prt scr
+    disabledEvent(e);
+  }*/
+  if (e.key === "F12") {
+    disabledEvent(e);
+  }//*/
+});
+document.addEventListener('keyup', function (e) {
+  if (e.key === 'PrintScreen') { // prt scr
+    disabledEvent(e);
+  }
+});
+document.addEventListener('beforeinput', function (e) {
+  if (e.inputType === 'insertFromPaste' && e.dataTransfer.types.includes('Files')) { // Check if the input is from a paste event with a file
+    disabledEvent(e); // Prevent the default behavior
+  }
+});
+
+
+// Disable device camera and screen capture
+/*
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(function (stream) {
+    stream.getTracks().forEach(function (track) {
+      track.enabled = false;
+    });
+  })
+  .catch(function (error) {
+    console.error('Could not disable camera:', error);
+  });
+navigator.mediaDevices.getDisplayMedia({ video: true })
+  .then(function (stream) {
+    stream.getTracks().forEach(function (track) {
+      track.enabled = false;
+    });
+  })
+  .catch(function (error) {
+    console.error('Could not disable screen capture:', error);
+  });
+  */
+
+
+function disabledEvent(e) {
+  if (e.stopPropagation) {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+  }/* else if (window.event) {
+    window.event.cancelBubble = true;
+  }*/
+  e.preventDefault();
+  return false;
+}
+
+
+(function () {
   "use strict";
 
   /**
@@ -109,7 +178,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -118,7 +187,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -128,7 +197,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault()
 
@@ -167,9 +236,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -177,7 +246,7 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        portfolioIsotope.on('arrangeComplete', function () {
           AOS.refresh()
         });
       }, true);
