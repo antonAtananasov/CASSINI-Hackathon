@@ -763,6 +763,7 @@ section {
   transition: ease-in-out 0.3s;
 }
 
+
 .services .icon-box p {
   line-height: 24px;
   font-size: 14px;
@@ -1144,6 +1145,15 @@ section {
 .team .member .social a+a {
   margin-left: 8px;
 }
+.team-name:hover, 
+div:has( > .member):hover h4,
+div:has( > .member):hover p,
+div:has( > .member):hover span
+{
+  color: #007bff !important;
+  transition: ease-in-out 0.15s;
+}
+
 
 /*--------------------------------------------------------------
 # Contact
