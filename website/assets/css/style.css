@@ -49,18 +49,18 @@ body {
   z-index: 100;
 }
 
-.alternatives .show-on-hover{
+.hover-container .show-on-hover{
   filter: opacity(0);
   transition: filter .3s;
 }
-.alternatives:hover .show-on-hover{
+.hover-container:hover .show-on-hover{
   filter: opacity(100%);
 }
-.alternatives .hide-on-hover{
+.hover-container .hide-on-hover{
   filter: opacity(100%);
   transition: filter .3s;
 }
-.alternatives:hover .hide-on-hover{
+.hover-container:hover .hide-on-hover{
   filter: opacity(0%);
 }
 
