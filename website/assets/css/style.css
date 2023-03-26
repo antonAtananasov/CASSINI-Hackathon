@@ -41,6 +41,29 @@
   }
 }
 
+body {
+  transition: all .2s;
+}
+
+.over-text {
+  z-index: 100;
+}
+
+.alternatives .show-on-hover{
+  filter: opacity(0);
+  transition: filter .3s;
+}
+.alternatives:hover .show-on-hover{
+  filter: opacity(100%);
+}
+.alternatives .hide-on-hover{
+  filter: opacity(100%);
+  transition: filter .3s;
+}
+.alternatives:hover .hide-on-hover{
+  filter: opacity(0%);
+}
+
 .thunderstrike-logo {
   position: absolute;
   transform: translate(10%, -50%);
