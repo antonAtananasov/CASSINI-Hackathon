@@ -1179,6 +1179,11 @@ div:has(.team-name span[href='#Asen']:hover) div.col-lg-4 #Asen.member h4
   transition: ease-in-out 0.15s;
 }
 
+
+.thunderstrike-logo-body h2 span {
+  font-weight: 100!important;
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
